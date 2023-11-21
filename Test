@@ -1,0 +1,108 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+void Zufallsfaktor() {
+    srand((unsigned int)time(NULL));
+}
+int Würfeln() {
+    return (rand() % 6) + 1;
+}
+struct Spieler{
+    char name[20];
+    int Alter;
+};
+
+int test;
+int Anzahl;
+int Alter;
+const char* name1 = "Cebra";
+const char* name2 = "Monty";
+
+int main(void) {
+    Zufallsfaktor();
+    scanf("%d", &test);
+    scanf("%d", &Anzahl);
+    while(Anzahl <0||Anzahl >3){
+        printf("ERROR: MAX Anzahl\n");
+        scanf("%d", &Anzahl);
+    }
+    struct Spieler Nummer[3];
+    for(int i=0; i< Anzahl; i++){
+        scanf("%s", Nummer[i].name);
+        scanf("%d", &Nummer[i].Alter);
+    }
+    printf("Spieler: Cebra Monty ");
+    for (int i = 0; i < Anzahl; i++) {
+        printf("%s-%d ", Nummer[i].name, Nummer[i].Alter);
+    }
+    //int Spielbrett[10][5];
+    printf("\n");
+    for (int i = 0; i < 5; ++i) {
+        printf("%c ", 'E'-i); // 'A' plus die aktuelle Zeilennummer (Reihe)
+if(i==0|| i==2||i==4){
+    for (int j = 0; j < 10; ++j) {
+            printf("%d ", j+1); // Inhalt der Zelle ausgeben
+        }
+}else{
+      for (int j = 11; j > 1; j--) {
+          printf("%d ", j-1); // Inhalt der Zelle ausgeben
+        }
+}
+        printf("\n");
+    }
+    int i=0;
+    if(Nummer[i].Alter< Nummer[i+1].Alter && Nummer[i].Alter< Nummer[i+2].Alter){
+        printf("Start: %s\n", Nummer[i].name);
+        for(int i=0; i<6; i++){
+            if(i<3){
+             int Ergebnis = Würfeln();
+         printf("Spieler: %s; Zahl: %d; Position: \n", Nummer[i].name, Ergebnis);   
+            }
+         if(i==4){
+             int Ergebnis = Würfeln();
+             printf("Spieler: %s; Zahl: %d; Position: %\n", name1, Ergebnis);
+         }
+         if(i==5){
+             int Ergebnis = Würfeln();
+             printf("Spieler: %s; Zahl: %d; Position: \n", name2, Ergebnis);
+         }
+        }
+    }
+    if(Nummer[i+1].Alter< Nummer[i].Alter && Nummer[i+1].Alter< Nummer[i+2].Alter){
+        printf("Start: %s\n", Nummer[i+1].name);
+        for(int i=0; i<6; i++){
+            if(i<3){
+             int Ergebnis = Würfeln();
+         printf("Spieler: %s; Zahl: %d; Position: \n", Nummer[i+1].name, Ergebnis);   
+            }
+         if(i==4){
+             int Ergebnis = Würfeln();
+             printf("Spieler: %s; Zahl: %d; Position: \n", name1, Ergebnis);
+         }
+         if(i==5){
+             int Ergebnis = Würfeln();
+             printf("Spieler: %s; Zahl: %d; Position: \n", name2, Ergebnis);
+         }
+        }
+    }
+    if(Nummer[i+2].Alter< Nummer[i].Alter && Nummer[i+2].Alter< Nummer[i+1].Alter){
+        printf("Start: %s\n", Nummer[i+2].name);
+        for(int i=0; i<6; i++){
+            if(i<3){
+             int Ergebnis = Würfeln();
+         printf("Spieler: %s; Zahl: %d; Position: \n", Nummer[i].name, Ergebnis);   
+            }
+         if(i==4){
+             int Ergebnis = Würfeln();
+             printf("Spieler: %s; Zahl: %d; Position: \n", name1, Ergebnis);
+         }
+         if(i==5){
+             int Ergebnis = Würfeln();
+             printf("Spieler: %s; Zahl: %d; Position: \n", name2, Ergebnis);
+         }
+        }
+    }
+    
+    return 0;
+}
