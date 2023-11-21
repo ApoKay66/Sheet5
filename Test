@@ -57,15 +57,15 @@ if(i==0|| i==2||i==4){
         for(int i=0; i<6; i++){
             if(i<3){
              int Ergebnis = Würfeln();
-         printf("Spieler: %s; Zahl: %d; Position: \n", Nummer[i].name, Ergebnis);   
+         printf("Spieler: %s; Zahl: %d; Position: %c %d\n", Nummer[i].name, Ergebnis, 'A', Ergebnis);   
             }
          if(i==4){
              int Ergebnis = Würfeln();
-             printf("Spieler: %s; Zahl: %d; Position: %\n", name1, Ergebnis);
+             printf("Spieler: %s; Zahl: %d; Position: %c %d\n", name1, Ergebnis, 'A', Ergebnis);
          }
          if(i==5){
              int Ergebnis = Würfeln();
-             printf("Spieler: %s; Zahl: %d; Position: \n", name2, Ergebnis);
+             printf("Spieler: %s; Zahl: %d; Position: %c %d\n", name2, Ergebnis, 'A', Ergebnis);
          }
         }
     }
